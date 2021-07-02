@@ -148,10 +148,16 @@ class AbaFileGenerator
         $line = self::DESCRIPTIVE_TYPE;
 
         // BSB
-        $line .= $this->bsb;
+        //$line .= $this->bsb;
+        //$line .= '       ';
+        //$line .= str_pad('',7," ");
+        $line .= str_repeat(' ', 7);
 
         // Account Number
-        $line .= str_pad($this->accountNumber, 9, ' ', STR_PAD_LEFT);
+        //$line .= str_pad($this->accountNumber, 9, ' ', STR_PAD_LEFT);
+        //$line .= '         ';
+        //$line .= str_pad('',9," ");
+        $line .= str_repeat(' ', 9);
 
         // Reserved - must be a single blank space
         $line .= ' ';
@@ -169,10 +175,12 @@ class AbaFileGenerator
         $line .= str_pad($this->userName, 26, ' ', STR_PAD_RIGHT);
 
         // User ID
-        $line .= $this->directEntryUserId;
+        //$line .= $this->directEntryUserId;
+        $line .= str_pad($this->directEntryUserId, 9, ' ', STR_PAD_RIGHT);
 
         // File Description
-        $line .= str_pad($this->description, 12, ' ', STR_PAD_RIGHT);
+        //$line .= str_pad($this->description, 12, ' ', STR_PAD_RIGHT);
+        $line .= str_pad($this->description, 9, ' ', STR_PAD_RIGHT);
 
         // Processing Date
         $line .= date('dmy', is_numeric($this->processingDate) ? $this->processingDate : strtotime($this->processingDate));
@@ -285,7 +293,7 @@ class AbaFileGenerator
             throw new Exception('Descriptive record user name is invalid. Must be letters only and up to 26 characters long.');
         }
 
-        if (! preg_match('/^[\d]{6}$/', $this->directEntryUserId)) {
+        if (! preg_match('/^[A-Z\d]{8}$/', $this->directEntryUserId)) {
             throw new Exception('Descriptive record direct entiry user ID is invalid. Must be 6 digits long.');
         }
 

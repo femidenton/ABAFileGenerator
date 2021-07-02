@@ -1,0 +1,11 @@
+ preg_match('/^[\d]{6}$/')
+ 
+   $transactionArr = array(
+           'account_name' => $transaction->setAccountName($account_name),
+           'account_number' => $transaction->setAccountNumber($account_number),
+           'bsb_number' => $transaction->setBsb($bsb_number),
+            $transaction->setTransactionCode('53');
+            $transaction->setReference($reference);
+            $transaction->setAmount($amount);
+
+        );

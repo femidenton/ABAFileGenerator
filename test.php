@@ -9,7 +9,7 @@ require_once __DIR__ . "/vendor/autoload.php";
     $account_number ='12345678';
       $bank_name = 'CBA';
        $direct_entry_id = '175029';
-        $description = 'Payroll';
+        $description = 'PAYMENTS';
          $amount = '152000';
           $reference = '122';
           $account_name = 'Femi Denton';
@@ -29,7 +29,7 @@ require_once __DIR__ . "/vendor/autoload.php";
         $transaction->setAccountName($account_name);
         $transaction->setAccountNumber($account_number);
         $transaction->setBsb($bsb_number);
-        $transaction->setTransactionCode('13');
+        $transaction->setTransactionCode('53');
         $transaction->setReference($reference);
         $transaction->setAmount($amount);
     
